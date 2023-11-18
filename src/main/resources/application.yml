@@ -5,5 +5,37 @@ server:
 spring:
   application:
     name: CUSTOMER-SERVICE
-#  zipkin:
+#  zipkin:management:
+  endpoints:
+    web:
+      #exposure.include: health, prometheus
+      exposure.include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    probes:
+      enabled: true
+
+  metrics:
+    tags:
+      application: ${spring.application.name}
 #    base-url: http://127.0.0.1:9411/
+
+
+
+management:
+  endpoints:
+    web:
+      #exposure.include: health, prometheus
+      exposure.include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    probes:
+      enabled: true
+
+  metrics:
+    tags:
+      application: ${spring.application.name}
